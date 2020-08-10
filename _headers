@@ -1,0 +1,2 @@
+/*
+  Content-Security-Policy: frame-ancestors 'self' wp-test2.staging.listfly.com;

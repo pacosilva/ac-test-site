@@ -43,7 +43,10 @@ const paths = {
         src: 'src/img/*',
         dest: 'dist/img/'
     },
-
+    headers: {
+        src: '_headers',
+        dest: 'dist/'
+    }
 };
 
 /**
@@ -108,6 +111,11 @@ function buildJs() {
         .pipe(dest(paths.js.dest));
 }
 
+function copyHeaders() {
+    // copy _headers file to dist
+    return src(paths.headers.src).pipe(dest(paths.headers.dest));    
+}
+
 /**
  * Live reload the page
  */
@@ -134,7 +142,7 @@ const filesToWatch = [
 /**
  * Run these tasks when a watched file changes
  */
-const watchTask = () => watch(filesToWatch, series(clean, parallel(buildJs, buildCss, buildHtml), reload));
+const watchTask = () => watch(filesToWatch, series(clean, parallel(buildJs, buildCss, buildHtml, copyHeaders), reload));
 
-exports.build = parallel(buildJs, buildCss, buildHtml); // Netlify should run this to build the site
-exports.default = series(clean, parallel(buildJs, buildCss, buildHtml), serve, watchTask); // Run `gulp` for dev
+exports.build = parallel(buildJs, buildCss, buildHtml, copyHeaders); // Netlify should run this to build the site
+exports.default = series(clean, parallel(buildJs, buildCss, buildHtml, copyHeaders), serve, watchTask); // Run `gulp` for dev

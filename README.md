@@ -8,7 +8,7 @@ The "Contact" page on the site gives you an easy way to pass an email into the t
 ## One-click deploy
 You'll need a Netlify account connected to GitHub. Click the button below and follow the instructions. You will need to enter the account id (the one in the tracking code) for the AC account you want to use. Additionally, add `*.netlify.app` to your allowed domains in Tracking settings.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/NickCiliak/ac-test-site)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/vfranciskovic/ac-test-site)
 
 ### How to change your tracking id or site name after deployment
 1. Go to your Netlify dashboard and click your site.
